@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>彩窗铅条骨架编排</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='%236c5ce7' stroke='%23ffd479' stroke-width='8'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="title">
+      <span class="rose" aria-hidden="true"></span>
+      <h1>彩窗铅条骨架编排</h1>
+    </div>
+    <div class="actions">
+      <button id="btn-sample" class="btn ghost" type="button">载入演示样例</button>
+      <button id="btn-clear" class="btn ghost" type="button">清空草稿</button>
+      <button id="btn-plan" class="btn primary" type="button">编排骨架</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="card canvas-card">
+      <div class="card-head">
+        <h2>骨架画布</h2>
+        <p class="hint">拖动玻璃片可调整布局；粗线为编排采用的铅条，灰虚线为未采用候选。</p>
+      </div>
+      <div class="canvas-wrap">
+        <svg id="canvas" viewBox="0 0 720 560" role="img" aria-label="铅条骨架示意图"></svg>
+        <div class="legend">
+          <span><i class="sw g4"></i>等级 ≥4</span>
+          <span><i class="sw g3"></i>等级 3</span>
+          <span><i class="sw g2"></i>等级 2</span>
+          <span><i class="sw g1"></i>等级 1</span>
+          <span><i class="sw unused"></i>未采用</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="side">
+      <section class="card">
+        <div class="card-head">
+          <h2>玻璃片 <small id="piece-count"></small></h2>
+          <button id="btn-add-piece" class="btn mini" type="button">+ 添加玻璃片</button>
+        </div>
+        <div class="table-wrap">
+          <table class="edit-table" id="piece-table">
+            <thead>
+              <tr><th>编号</th><th>连接下限</th><th>连接上限</th><th></th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="rule">要求 5–8 块，编号唯一；连接数为非负整数闭区间。</p>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>候选铅条 <small id="bar-count"></small></h2>
+          <button id="btn-add-bar" class="btn mini" type="button">+ 添加铅条</button>
+        </div>
+        <div class="table-wrap tall">
+          <table class="edit-table" id="bar-table">
+            <thead>
+              <tr><th>序号</th><th>端点 A</th><th>端点 B</th><th>等级</th><th>代价</th><th></th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="rule">要求 8–14 条；序号按录入顺序自动生成，等级为正整数。</p>
+      </section>
+
+      <section class="card result-card" id="result-card">
+        <div class="card-head"><h2>编排结果</h2></div>
+        <div id="result" class="result-body">
+          <p class="placeholder">录入玻璃片与候选铅条后，点击右上方「编排骨架」。</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

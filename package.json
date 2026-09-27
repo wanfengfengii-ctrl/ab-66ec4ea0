@@ -1,0 +1,17 @@
+{
+  "name": "stained-glass-lead-skeleton",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "彩窗铅条骨架编排：受度数区间约束的生成树规划工具",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/*.test.js",
+    "build": "node scripts/build.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "verify": "npm run test && npm run build && npm run smoke"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
